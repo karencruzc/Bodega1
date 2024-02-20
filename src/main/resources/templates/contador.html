@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<p th:text="${contador}">CONTADOR:</p>
+		<p th:text="${empresa}">EMPRESA:</p>
+		<ul th:each="curso : ${lista}">
+			<li th:text="${curso}"></li>			
+		</ul>
+		<form action="incrementar">
+			<input type="submit" value="Incrementar"/>
+		</form>
+	</body>
+</html>
