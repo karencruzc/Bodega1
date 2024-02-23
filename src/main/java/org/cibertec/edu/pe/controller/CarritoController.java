@@ -21,13 +21,15 @@ public class CarritoController {
 	}
 	@GetMapping("/carrito")
 	public String verCarrito() {
-		return "carrito";		
+		return "carrito";
 	}
 	@GetMapping("/comprar/{id}/{cant}") //http://localhost:8085/comprar/1/20
-	public String comprar(@PathVariable int id,@PathVariable int cant,Model modelo) {
-		List<carrito> miLista = (List<carrito>)modelo.getAttribute("lista");
+	public String comprar(@PathVariable("id") int id,
+						  @PathVariable("cant") int cant, 
+						  Model modelo) {
+		List<carrito> miLista = (List<carrito>) modelo.getAttribute("lista");
 		//Crear objeto de tipo carrito y asignarle los valores enviados
-		carrito ObjC = new carrito(id, cant);
+		carrito ObjC = new carrito(id, cant);		
 		//Añadirlos a la Lista
 		miLista.add(ObjC);
 		//Enviarlo a la vista
